@@ -1,0 +1,13 @@
+.card{
+    border: 1px solid rgb(0, 0, 0); 
+}
+.horizontal-container{
+    display: block;
+    flex-direction:column;
+}
+.data-container{
+    margin: 10px;
+}
+.container-space{
+    justify-content: space-between;
+}
