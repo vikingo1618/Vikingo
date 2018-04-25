@@ -11,6 +11,7 @@ import { LoginService } from "../services/login.service";
 })
 export class LoginComponent implements OnInit, OnDestroy {
     
+    response: boolean;
     user: string;
     password: string;
 
@@ -25,7 +26,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
 
     verifyLogin(){
-        var inputData=this._loginService.setLogin(this.user,this.password);
+        let inputData=this._loginService.setLogin(this.user,this.password);
+        this.response= inputData;
         if (inputData==true)
         {
             this._loginRouter.navigate(['']);

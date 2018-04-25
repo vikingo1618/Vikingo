@@ -7,6 +7,8 @@ import { APP_PROVIDERS } from '../app.providers';
 import { GitHubComponent } from '../git-hub-card/git-hub-card.component';
 import {SearchUserComponent  } from "../search-user/search-user.component";
 import { MainComponent } from './main.component';
+import { GitHubService } from '../services/git-hub.service';
+import { GitHubServiceMock } from '../../mock-services/git-hub.service.mock';
 
 describe('MainComponent', () => {
   let component: MainComponent;
@@ -21,7 +23,10 @@ describe('MainComponent', () => {
       imports: [FormsModule,
                 MATERIAL_COMPONENTS,
                 HttpClientModule],
-      providers: [APP_PROVIDERS]
+      providers: [{
+        provide: GitHubService,
+      useClass: GitHubServiceMock
+    }]
     })
     .compileComponents();
   }));
@@ -35,4 +40,12 @@ describe('MainComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should add three elements to card array', () => {
+    expect(component.gitHubDataList.length).toEqual(0);
+    component.onSearchUser('vikingo1618');
+    component.onSearchUser('vikingo1618');
+    component.onSearchUser('vikingo1618');
+    expect(component.gitHubDataList.length).toEqual(3);
+  })
 });
