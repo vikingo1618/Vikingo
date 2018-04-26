@@ -11,11 +11,10 @@ import { LoginService } from "../services/login.service";
 })
 export class LoginComponent implements OnInit, OnDestroy {
     
-    response: boolean;
     user: string;
     password: string;
 
-    constructor(private _loginService: LoginService, private _loginRouter: Router){
+    constructor(private _loginService: LoginService, public _loginRouter: Router){
         
     }
     ngOnInit(){  
@@ -26,8 +25,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
 
     verifyLogin(){
-        let inputData=this._loginService.setLogin(this.user,this.password);
-        this.response= inputData;
+        var inputData=this._loginService.setLogin(this.user,this.password);
         if (inputData==true)
         {
             this._loginRouter.navigate(['']);

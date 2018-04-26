@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
 
 export class LoginService {
 
-  userData:string = 'BecaJava18';
-  passwordData:string='axity2018';
+  userData:string = 'vikingo1618';
+  passwordData:string='java1234';
 
   setLogin(user: string, password: string){
     var validate:boolean;
