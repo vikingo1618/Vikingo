@@ -1,11 +1,16 @@
 <div align= "center">
         <h1>¡BIENVENIDO!</h1>
     <div class="login-card">
-              User
-        <input id = "userName" type="text" [(ngModel)] = "user" placeholder="nombre de usuario"/><br>
+        Name 
+        <input id = "realName" type="text" [(ngModel)] = "realname" placeholder="your name"/><br>
+        User
+        <input id = "userName" type="text" [(ngModel)] = "user" placeholder="your alias"/><br>
         Password
-        <input id = "pass" type="password" [(ngModel)] = "password" placeholder="pass"/><br>
-        <br>
+        <input id = "pass" type="password" [(ngModel)] = "password" placeholder="your pass"/><br>
+        Confirm Password 
+        <input id = "passConfirm" type="password" pattern="[^ @]*@[^ @]*" [(ngModel)] = "passConfirm" placeholder="confirm your pass"/><br>
+        Email
+        <input id = "mail" type="email" [(ngModel)] = "mail" placeholder="your email"/><br><br>
         <button (click) = "verifyLogin()">Acceso</button>
     </div>
 </div>

@@ -57,53 +57,23 @@ describe('LoginComponent', () => {
   });
 
   //Validates successful login
-  it('should validate login rediretion to Main',()=>{
+  it('should validate login redirection to Main',()=>{
+    component.realname='vik'
+    component.user='vik123';
+    component.password='vik1234';
+    component.passConfirm='vik1234';
+    component.mail= 'vik@gmail.com';
 
-    component.user='vikingo1618';
-    component.password='java1234';
 
-    let navigateSPY=spyOn(component._loginRouter,'navigate');
-
-    component.verifyLogin();
-    
-    expect(navigateSPY).toHaveBeenCalledWith(['']);
-  });
-
-  //Validates unsuccessful login
-  it('should validate invalid login alert',()=>{
-
-    component.user='vikingo618';
-    component.password='java1234';
-
-    let alertSPY=spyOn(window,'alert');
+    //let navigateSPY=spyOn(component._loginRouter,'navigate');
 
     component.verifyLogin();
     
-    expect(alertSPY).toHaveBeenCalledWith('ERROR:User not found');
+    expect(component.response).toBe(true);
   });
+//80
+//Regex
 
-  //Validates unsuccesful login on view
-  it('should validate invalid login alert on wiew',()=>{
-
-    component.user='vikingo618';
-    component.password='java1234';
-
-    let alertSpy = spyOn(window,'alert');
-    let compiled = fixture.nativeElement.querySelector('button').click();
-    
-    expect(alertSpy).toHaveBeenCalledWith('ERROR:User not found');
-  });
- //Validates successful login on view
-  it('should validate valid login redirection to Main on wiew',()=>{
-
-    component.user='vikingo1618';
-    component.password='java1234';
-
-    let navSpy = spyOn(component._loginRouter,'navigate');
-    let compiled = fixture.nativeElement.querySelector('button').click();
-    
-    expect(navSpy).toHaveBeenCalledWith(['']);
-  });
 
 });
 
