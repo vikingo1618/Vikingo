@@ -10,11 +10,13 @@ import { LoginService } from "../services/login.service";
 
 })
 export class LoginComponent implements OnInit, OnDestroy {
-    
+    realname: string;
     user: string;
     password: string;
-
-    constructor(private _loginService: LoginService, private _loginRouter: Router){
+    passConfirm: string;
+    mail: string;
+    response: boolean;
+    constructor(private _loginService: LoginService, public _loginRouter: Router){
         
     }
     ngOnInit(){  
@@ -25,13 +27,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
 
     verifyLogin(){
-        var inputData=this._loginService.setLogin(this.user,this.password);
-        if (inputData==true)
-        {
-            this._loginRouter.navigate(['']);
-        } else{
-          window.alert('ERROR:User not found')
-        }  
+        this.response = this._loginService.setLogin(this.realname,this.user,this.password,this.passConfirm,this.mail);
 
     }
     
