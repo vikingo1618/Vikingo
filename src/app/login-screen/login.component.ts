@@ -15,7 +15,9 @@ export class LoginComponent implements OnInit, OnDestroy {
     password: string;
     passConfirm: string;
     mail: string;
+    read:boolean;
     response: boolean;
+    nameResponse;emailResponse:boolean;
     constructor(private _loginService: LoginService, public _loginRouter: Router){
         
     }
@@ -27,9 +29,9 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
 
     verifyLogin(){
-        this.response = this._loginService.setLogin(this.realname,this.user,this.password,this.passConfirm,this.mail);
-
+        this.response = this._loginService.setLogin(this.realname,this.user,this.password,this.passConfirm,this.mail,this.read); 
+        this.response ? this._loginRouter.navigate(['']) : window.alert('ERROR:User not found');
+          
+} 
     }
     
-
-}

@@ -10,7 +10,9 @@
         Confirm Password 
         <input id = "passConfirm" type="password" pattern="[^ @]*@[^ @]*" [(ngModel)] = "passConfirm" placeholder="confirm your pass"/><br>
         Email
-        <input id = "mail" type="email" [(ngModel)] = "mail" placeholder="your email"/><br><br>
-        <button (click) = "verifyLogin()">Acceso</button>
+        <input id = "mail" type="email" [(ngModel)] = "mail" placeholder="your email"/><br>
+        <input id = box type="checkbox"  [(ngModel)]="read"> I have read all this shit<br>
+        <br>
+        <button (click) = "verifyLogin()">Login</button>
     </div>
 </div>

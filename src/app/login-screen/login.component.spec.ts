@@ -64,14 +64,23 @@ describe('LoginComponent', () => {
     component.passConfirm='vik1234';
     component.mail= 'vik@gmail.com';
 
-
-    //let navigateSPY=spyOn(component._loginRouter,'navigate');
-
     component.verifyLogin();
     
     expect(component.response).toBe(true);
   });
-//80
+
+    //Validates the passwords entered by user match
+    it('should validate matching password',()=>{
+      component.realname='vik'
+      component.user='vik123';
+      component.password='vik1234';
+      component.passConfirm='vik1234';
+      component.mail= 'vik@gmail.com';
+  
+      component.verifyLogin();
+      
+      expect(component.passResponse).toBe(true);
+    });
 //Regex
 
 
