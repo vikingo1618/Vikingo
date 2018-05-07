@@ -3,16 +3,21 @@ import { Injectable } from '@angular/core';
 @Injectable()
 
 export class LoginService {
+  name:string= 'Victor';
+  userData:string = 'vikingo333';
+  passwordData:string='Vikingo1234';
+  realemail:string ="vik@gmail.com";
+  check:boolean = true;
 
-  userData:string = 'BecaJava18';
-  passwordData:string='axity2018';
-
-  setLogin(user: string, password: string){
+  setLogin(realname:string,user: string, password: string, passcon:string,email:string,read:boolean){
     var validate:boolean;
 
-    if(this.userData===user && this.passwordData===password)
+    //Regex Javascipt
+    if(this.name=== realname && this.userData===user && this.passwordData===password
+         && this.passwordData===passcon && this.realemail===email && this.check === read)
     {
      return validate=true;
     }
+    //return validate=false;
   }
 }
